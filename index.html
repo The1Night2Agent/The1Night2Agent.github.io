@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KIRANMOY | ARCHITECT INDEX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Plus+Jakarta+Sans:wght@300;800&display=swap');
 
@@ -18,7 +19,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; }
 
-        /* Sidebar Nav */
         aside {
             width: 300px; height: 100vh; background: var(--sidebar);
             position: fixed; border-right: 1px solid var(--border);
@@ -30,12 +30,10 @@
         .nav-item { color: var(--dim); text-decoration: none; margin-bottom: 20px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .nav-item:hover { color: #fff; padding-left: 10px; }
 
-        /* Main Content */
         main { margin-left: 300px; width: calc(100% - 300px); }
 
-        /* The Photo Architecture */
         .hero-banner {
-            width: 100%; height: 70vh; background: #111; 
+            width: 100%; height: 75vh; background: #111; 
             display: flex; align-items: flex-end;
             position: relative; overflow: hidden;
             border-bottom: 1px solid var(--border);
@@ -43,49 +41,41 @@
 
         .hero-image {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; opacity: 0.6; /* Lower opacity for that 'Wiki' mystery vibe */
-            filter: grayscale(100%); /* Keeps it professional and cold */
+            object-fit: cover; opacity: 0.5;
+            filter: grayscale(100%);
         }
 
-        .hero-text {
-            position: relative; padding: 60px; z-index: 10;
-            background: linear-gradient(transparent, #050505);
-            width: 100%;
-        }
-
-        .photo-tag {
-            font-family: 'Space Mono'; font-size: 0.6rem; color: #00ff88;
-            margin-bottom: 10px; text-transform: uppercase;
-        }
+        .hero-text { position: relative; padding: 60px; z-index: 10; background: linear-gradient(transparent, #050505); width: 100%; }
+        .photo-tag { font-family: 'Space Mono'; font-size: 0.6rem; color: #00ff88; margin-bottom: 10px; }
 
         section { padding: 80px 10%; border-bottom: 1px solid var(--border); }
         h2 { font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 30px; }
         
-        .wiki-card {
-            border: 1px solid var(--border); padding: 30px; border-radius: 4px;
-            background: rgba(255,255,255,0.01); margin-bottom: 20px;
+        .wiki-card { border: 1px solid var(--border); padding: 30px; border-radius: 4px; background: rgba(255,255,255,0.01); margin-bottom: 20px; transition: 0.3s; }
+        .wiki-card:hover { border-color: #fff; background: rgba(255,255,255,0.03); }
+        .wiki-label { font-family: 'Space Mono'; color: #444; font-size: 0.7rem; margin-bottom: 10px; }
+
+        /* Fixed Icon Styling */
+        .social-row { display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+        .social-row a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
             transition: 0.3s;
         }
-        .wiki-card:hover { border-color: #fff; }
-
-        .wiki-label { font-family: 'Space Mono'; color: #444; font-size: 0.7rem; margin-bottom: 10px; }
+        .social-row a i { font-size: 1.2rem; color: #888; transition: 0.3s; }
+        .social-row a:hover { color: #00ff88; }
+        .social-row a:hover i { color: #00ff88; transform: translateY(-3px); }
 
         @media (max-width: 768px) {
             aside { display: none; }
             main { margin-left: 0; width: 100%; }
-        }.social-row a i {
-    margin-right: 8px;
-    font-size: 1.1rem;
-    vertical-align: middle;
-    color: #fff;
-    transition: 0.3s;
-}
-
-.social-row a:hover i {
-    color: #00ff88; /* A subtle neon glow on hover */
-}
+        }
     </style>
-</link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
 <body>
 
     <aside>
@@ -101,38 +91,39 @@
 
     <main>
         <div class="hero-banner" id="identity">
- <img src="IMG_20251001_204037.jpg" class="hero-image" alt="Kiranmoy Architect">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000" class="hero-image" alt="Kiranmoy Architect">
             <div class="hero-text">
-                <div class="photo-tag">IMAGE_REFERENCE: ARCHITECT_PROFILE_V1</div>
-                <h1>KIRANMOY</h1>
+                <div class="photo-tag">REF_ID: ARCHITECT_PROFILE_V1</div>
+                <h1 style="font-size: 4rem; letter-spacing: -3px;">KIRANMOY</h1>
             </div>
         </div>
 
         <section id="specialization">
             <div class="wiki-label">TECHNICAL_SPECIALIZATION</div>
             <h2>FIGMA ARCHITECTURE</h2>
-            <p style="color: #888; max-width: 700px;">Mastery in high-fidelity prototyping, advanced auto-layout systems, and scalable design components. Every pixel is calculated for maximum psychological impact.</p>
+            <p style="color: #888; max-width: 700px;">Expertise in high-fidelity prototyping, advanced auto-layout systems, and scalable design languages. Every pixel is calculated for maximum psychological impact.</p>
         </section>
 
         <section id="assets">
-            <div class="wiki-label">PORTFOLIO_ASSETS</div>
+            <div class="wiki-label">PROJECT_REPOSITORY</div>
             <div class="wiki-card">
-                <h3>Skinstory (V1)</h3>
-                <p>Developing the user experience for automated skin health analysis.</p>
+                <h3>Skinstory (Active)</h3>
+                <p>Architecting the user flow and visual identity for a proprietary health-tech platform.</p>
             </div>
             <div class="wiki-card">
                 <h3>Cloud Infrastructure</h3>
-                <p>Deployed via Namecheap x GitHub global edge network.</p>
+                <p>Verified deployment of kiranmoy.me via GitHub Cloud Nodes.</p>
             </div>
         </section>
 
         <section id="network">
             <div class="wiki-label">EXTERNAL_CHANNELS</div>
-     <div class="social-row">
-    <a href="https://instagram.com/YOUR_USER" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://facebook.com/YOUR_USER" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-    <a href="https://github.com/The1Night2Agent" target="_blank"><i class="fa-brands fa-github"></i></a>
-     </div>
+            <div class="social-row">
+                <a href="https://instagram.com/kiranmoy_3" target="_blank"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
+                <a href="https://facebook.com/YOUR_FB" target="_blank"><i class="fa-brands fa-facebook"></i> FACEBOOK</a>
+                <a href="https://github.com/The1Night2Agent" target="_blank"><i class="fa-brands fa-github"></i> GITHUB</a>
+                <a href="https://figma.com/@YOUR_FIGMA" target="_blank"><i class="fa-brands fa-figma"></i> FIGMA</a>
+            </div>
         </section>
     </main>
 
