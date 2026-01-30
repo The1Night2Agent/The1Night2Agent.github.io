@@ -6,74 +6,76 @@
     <title>KIRANMOY | ARCHITECT INDEX</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Plus+Jakarta+Sans:wght@300;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;900&family=Space+Mono&display=swap');
 
-        :root {
-            --bg: #050505;
-            --sidebar: #0a0a0a;
-            --accent: #ffffff;
-            --dim: #444;
-            --border: rgba(255,255,255,0.05);
-        }
+    :root {
+        --bg: #000000;
+        --accent: #00ff88; /* The "Menace" Glow */
+        --glass: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.08);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; }
+    * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+    body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        aside {
-            width: 300px; height: 100vh; background: var(--sidebar);
-            position: fixed; border-right: 1px solid var(--border);
-            padding: 40px; display: flex; flex-direction: column;
-            z-index: 100;
-        }
+    /* The "Architect" Grid Background */
+    body::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: radial-gradient(var(--border) 1px, transparent 1px);
+        background-size: 40px 40px; z-index: -1; opacity: 0.5;
+    }
 
-        .wiki-logo { font-weight: 800; font-size: 1.2rem; margin-bottom: 50px; letter-spacing: -1px; }
-        .nav-item { color: var(--dim); text-decoration: none; margin-bottom: 20px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-item:hover { color: #fff; padding-left: 10px; }
+    /* Ultra-Thin Sidebar */
+    aside {
+        width: 80px; height: 100vh; position: fixed; left: 0; top: 0;
+        border-right: 1px solid var(--border); display: flex;
+        flex-direction: column; align-items: center; padding: 40px 0; z-index: 100;
+        background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+    }
 
-        main { margin-left: 300px; width: calc(100% - 300px); }
+    .nav-num { font-family: 'Space Mono'; font-size: 0.6rem; color: var(--dim); writing-mode: vertical-rl; margin-bottom: 40px; letter-spacing: 4px; }
 
-        .hero-banner {
-            width: 100%; height: 75vh; background: #111; 
-            display: flex; align-items: flex-end;
-            position: relative; overflow: hidden;
-            border-bottom: 1px solid var(--border);
-        }
+    /* Main Content Spacing */
+    main { margin-left: 80px; width: calc(100% - 80px); }
 
-        .hero-image {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; opacity: 0.5;
-            filter: grayscale(100%);
-        }
+    /* The "Expensive" Hero Section */
+    .hero {
+        height: 100vh; display: flex; flex-direction: column;
+        justify-content: center; padding: 0 10%; position: relative;
+    }
 
-        .hero-text { position: relative; padding: 60px; z-index: 10; background: linear-gradient(transparent, #050505); width: 100%; }
-        .photo-tag { font-family: 'Space Mono'; font-size: 0.6rem; color: #00ff88; margin-bottom: 10px; }
+    h1 { 
+        font-weight: 900; font-size: clamp(4rem, 15vw, 12rem); 
+        line-height: 0.8; letter-spacing: -0.05em; text-transform: uppercase;
+        background: linear-gradient(to bottom, #fff 40%, #222);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
 
-        section { padding: 80px 10%; border-bottom: 1px solid var(--border); }
-        h2 { font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 30px; }
-        
-        .wiki-card { border: 1px solid var(--border); padding: 30px; border-radius: 4px; background: rgba(255,255,255,0.01); margin-bottom: 20px; transition: 0.3s; }
-        .wiki-card:hover { border-color: #fff; background: rgba(255,255,255,0.03); }
-        .wiki-label { font-family: 'Space Mono'; color: #444; font-size: 0.7rem; margin-bottom: 10px; }
+    .sub-head { font-family: 'Space Mono'; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.5em; margin-top: 20px; }
 
-        /* Fixed Icon Styling */
-        .social-row { display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
-        .social-row a { 
-            color: #fff; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px;
-            transition: 0.3s;
-        }
-        .social-row a i { font-size: 1.2rem; color: #888; transition: 0.3s; }
-        .social-row a:hover { color: #00ff88; }
-        .social-row a:hover i { color: #00ff88; transform: translateY(-3px); }
+    /* Bento Grid Projects */
+    .grid-container {
+        display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; padding: 100px 10%;
+    }
 
-        @media (max-width: 768px) {
-            aside { display: none; }
-            main { margin-left: 0; width: 100%; }
-        }
+    .project-card {
+        grid-column: span 6; background: var(--glass); border: 1px solid var(--border);
+        padding: 60px; border-radius: 0px; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .project-card:hover { 
+        background: rgba(255,255,255,0.05); border-color: #fff;
+        transform: translateY(-10px);
+    }
+
+    /* Professional Social Row */
+    .social-footer {
+        padding: 60px 10%; border-top: 1px solid var(--border);
+        display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .social-footer a { color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.7rem; opacity: 0.5; transition: 0.3s; }
+    .social-footer a:hover { opacity: 1; color: var(--accent); }
     </style>
 </head>
 <body>
