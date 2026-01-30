@@ -38,10 +38,27 @@
     /* Main Content Spacing */
     main { margin-left: 80px; width: calc(100% - 80px); }
 
-    /* The "Expensive" Hero Section */
+    /* Centered Portrait Hero */
     .hero {
-        height: 100vh; display: flex; flex-direction: column;
-        justify-content: center; padding: 0 10%; position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Centers the portrait perfectly */
+        padding: 0;
+        position: relative;
+        background: #000;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        height: 90vh; /* Keeps the photo tall and cinematic */
+        width: auto;   /* Maintains original proportions */
+        max-width: 90%;
+        object-fit: contain;
+        filter: grayscale(100%) contrast(1.1); /* Adds that 'Gangster' grit */
+        opacity: 0.9;
+        box-shadow: 0 0 50px rgba(0,0,0,0.5); /* Depth */
     }
 
     h1 { 
