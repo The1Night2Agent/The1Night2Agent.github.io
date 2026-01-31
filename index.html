@@ -27,32 +27,61 @@
 
     /* Ultra-Thin Sidebar */
     aside {
-        width: 80px; height: 100vh; position: fixed; left: 0; top: 0;
-        border-right: 1px solid var(--border); display: flex;
-        flex-direction: column; align-items: center; padding: 40px 0; z-index: 100;
-        background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+    background: #050505;
+    border-right: 1px solid rgba(245, 245, 220, 0.1); /* Cream-tinted border */
+}
+
+    /* 1. The Soft Cream Navigation */
+    .nav-item { 
+        color: #F5F5DC; /* Official Soft Cream Hex Code */
+        text-decoration: none; 
+        margin-bottom: 25px; 
+        font-size: 0.7rem; 
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+        transition: 0.4s;
+        opacity: 0.7; /* Makes it look sophisticated */
+    }
+    
+    .nav-item:hover { 
+        color: #fff; 
+        opacity: 1;
+        padding-left: 10px; 
     }
 
-    .nav-num { font-family: 'Space Mono'; font-size: 0.6rem; color: var(--dim); writing-mode: vertical-rl; margin-bottom: 40px; letter-spacing: 4px; }
+    /* 2. The 90px Gap & Layout Refinement */
+    main { 
+        margin-left: 120px; /* More space for the sidebar */
+        padding-bottom: 90px; /* The massive gap at the bottom */
+    }
 
-    /* Main Content Spacing */
-    main { margin-left: 80px; width: calc(100% - 80px); }
+    section {
+        margin-bottom: 90px; /* Consistent gap between all main sections */
+    }
+
+    /* Fixing the blue link issue globally */
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 
     /* Centered Portrait Hero */
     .hero {
-        height: 100vh;
+        min-height: 100vh; /* Changed from 'height' to 'min-height' */
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Splits the screen in two equal halves */
+        grid-template-columns: 1.2fr 1fr;
         align-items: center;
-        background: #000;
-        padding: 0 5%;
+        padding: 60px 5%; /* Adds 60px padding to the top AND bottom */
+        gap: 40px;
     }
 
-    .hero-image-container {
+    .hero-img-box {
+        height: auto; /* Changed from fixed height */
+        max-height: 80vh; /* Keeps it from getting too big on huge screens */
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 90vh;
+        overflow: hidden;
+        border: 1px solid var(--border);
     }
 
     .hero-image {
