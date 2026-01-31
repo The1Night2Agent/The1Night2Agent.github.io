@@ -41,24 +41,47 @@
     /* Centered Portrait Hero */
     .hero {
         height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; /* Centers the portrait perfectly */
-        padding: 0;
-        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Splits the screen in two equal halves */
+        align-items: center;
         background: #000;
-        overflow: hidden;
+        padding: 0 5%;
+    }
+
+    .hero-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
     }
 
     .hero-image {
-        height: 90vh; /* Keeps the photo tall and cinematic */
-        width: auto;   /* Maintains original proportions */
-        max-width: 90%;
-        object-fit: contain;
-        filter: grayscale(100%) contrast(1.1); /* Adds that 'Gangster' grit */
-        opacity: 0.9;
-        box-shadow: 0 0 50px rgba(0,0,0,0.5); /* Depth */
+        max-height: 100%;
+        width: auto;
+        filter: grayscale(100%);
+        border: 1px solid var(--border); /* Adds a thin professional frame */
+    }
+
+    .hero-content-right {
+        padding-left: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-content-right h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.9;
+        margin-bottom: 20px;
+    }
+
+    .hero-stats {
+        font-family: 'Space Mono';
+        font-size: 0.7rem;
+        color: var(--accent);
+        line-height: 2;
+        border-left: 2px solid var(--accent);
+        padding-left: 20px;
     }
 
     h1 { 
@@ -109,19 +132,21 @@
     </aside>
 
     <main>
-        <div class="hero-banner" id="identity">
-            <img src="IMG_20251001_204037.jpg" class="hero-image" alt="Kiranmoy Architect">
-            <div class="hero-text">
-                <div class="photo-tag">REF_ID: ARCHITECT_PROFILE_V1</div>
-                <h1 style="font-size: 4rem; letter-spacing: -3px;">KIRANMOY</h1>
-            </div>
+        <div class="hero">
+    <div class="hero-image-container">
+        <img src="YOUR_IMAGE_URL" class="hero-image" alt="Kiranmoy Architect">
+    </div>
+    <div class="hero-content-right">
+        <div class="photo-tag">ID_STATUS: VERIFIED_AGENT</div>
+        <h1>KIRANMOY</h1>
+        <div class="hero-stats">
+            ROLE: SYSTEM_ARCHITECT<br>
+            CORE: FIGMA_UX / NEBULA_STUDIO<br>
+            LOC: 26.14°N / 91.73°E
         </div>
-
-        <section id="specialization">
-            <div class="wiki-label">TECHNICAL_SPECIALIZATION</div>
-            <h2>FIGMA ARCHITECTURE</h2>
-            <p style="color: #888; max-width: 700px;">Expertise in high-fidelity prototyping, advanced auto-layout systems, and scalable design languages. Every pixel is calculated for maximum psychological impact.</p>
-        </section>
+    </div>
+</div>
+    </section>
 
         <section id="assets">
             <div class="wiki-label">PROJECT_REPOSITORY</div>
