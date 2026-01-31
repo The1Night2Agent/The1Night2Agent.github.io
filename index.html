@@ -1,204 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIRANMOY | ARCHITECT INDEX</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;900&family=Space+Mono&display=swap');
+        /* 1. Resetting the browser defaults so we start with a clean slate */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
-        --bg: #000000;
-        --accent: #00ff88; /* The "Menace" Glow */
-        --glass: rgba(255, 255, 255, 0.03);
-        --border: rgba(255, 255, 255, 0.08);
-    }
+        body { 
+            background-color: #000; 
+            color: #F5F5DC; /* That Soft Cream you wanted */
+            font-family: sans-serif;
+            overflow-x: hidden; /* Prevents annoying side-scrolling */
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
-    body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        /* 2. THE MANAGER: Telling the hero box to split into two columns */
+        .hero {
+            display: flex; 
+            height: 100vh;
+            align-items: center; /* Centers items vertically */
+            padding: 0 5%;
+            gap: 90px; /* The 'Menace' gap between photo and text */
+        }
 
-    /* The "Architect" Grid Background */
-    body::before {
-        content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background-image: radial-gradient(var(--border) 1px, transparent 1px);
-        background-size: 40px 40px; z-index: -1; opacity: 0.5;
-    }
+        /* 3. THE FRAME: Holding your portrait */
+        .hero-img-box {
+            flex: 1; /* Take up equal space */
+            height: 80vh; /* Don't touch the very top or bottom */
+            border: 1px solid rgba(245, 245, 220, 0.2);
+            display: flex;
+            justify-content: center; /* Center photo horizontally */
+            align-items: center;     /* Center photo vertically */
+            overflow: hidden;        /* THE POLICE: Keeps image inside the border */
+        }
 
-    /* Ultra-Thin Sidebar */
-    aside {
-    background: #050505;
-    border-right: 1px solid rgba(245, 245, 220, 0.1); /* Cream-tinted border */
-}
+        /* 4. THE IMAGE: The actual content */
+        .hero-img-box img {
+            max-height: 100%; /* Obey the frame height */
+            width: auto;      /* Don't stretch the width */
+            filter: grayscale(100%); /* The 'Gangster' aesthetic */
+        }
 
-    /* 1. The Soft Cream Navigation */
-    .nav-item { 
-        color: #F5F5DC; /* Official Soft Cream Hex Code */
-        text-decoration: none; 
-        margin-bottom: 25px; 
-        font-size: 0.7rem; 
-        text-transform: uppercase; 
-        letter-spacing: 2px; 
-        transition: 0.4s;
-        opacity: 0.7; /* Makes it look sophisticated */
-    }
-    
-    .nav-item:hover { 
-        color: #fff; 
-        opacity: 1;
-        padding-left: 10px; 
-    }
+        /* 5. THE IDENTITY: Your right-side text */
+        .hero-info {
+            flex: 1; /* Take up the other half of the space */
+        }
 
-    /* 2. The 90px Gap & Layout Refinement */
-    main { 
-        margin-left: 120px; /* More space for the sidebar */
-        padding-bottom: 90px; /* The massive gap at the bottom */
-    }
-
-    section {
-        margin-bottom: 90px; /* Consistent gap between all main sections */
-    }
-
-    /* Fixing the blue link issue globally */
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    /* Centered Portrait Hero */
-    .hero {
-        min-height: 100vh; /* Changed from 'height' to 'min-height' */
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        align-items: center;
-        padding: 60px 5%; /* Adds 60px padding to the top AND bottom */
-        gap: 40px;
-    }
-
-    .hero-img-box {
-        height: auto; /* Changed from fixed height */
-        max-height: 80vh; /* Keeps it from getting too big on huge screens */
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-        border: 1px solid var(--border);
-    }
-
-    .hero-image {
-        max-height: 100%;
-        width: auto;
-        filter: grayscale(100%);
-        border: 1px solid var(--border); /* Adds a thin professional frame */
-    }
-
-    .hero-content-right {
-        padding-left: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .hero-content-right h1 {
-        font-size: clamp(3rem, 8vw, 6rem);
-        line-height: 0.9;
-        margin-bottom: 20px;
-    }
-
-    .hero-stats {
-        font-family: 'Space Mono';
-        font-size: 0.7rem;
-        color: var(--accent);
-        line-height: 2;
-        border-left: 2px solid var(--accent);
-        padding-left: 20px;
-    }
-
-    h1 { 
-        font-weight: 900; font-size: clamp(4rem, 15vw, 12rem); 
-        line-height: 0.8; letter-spacing: -0.05em; text-transform: uppercase;
-        background: linear-gradient(to bottom, #fff 40%, #222);
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-
-    .sub-head { font-family: 'Space Mono'; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.5em; margin-top: 20px; }
-
-    /* Bento Grid Projects */
-    .grid-container {
-        display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; padding: 100px 10%;
-    }
-
-    .project-card {
-        grid-column: span 6; background: var(--glass); border: 1px solid var(--border);
-        padding: 60px; border-radius: 0px; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-    }
-
-    .project-card:hover { 
-        background: rgba(255,255,255,0.05); border-color: #fff;
-        transform: translateY(-10px);
-    }
-
-    /* Professional Social Row */
-    .social-footer {
-        padding: 60px 10%; border-top: 1px solid var(--border);
-        display: flex; justify-content: space-between; align-items: center;
-    }
-
-    .social-footer a { color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.7rem; opacity: 0.5; transition: 0.3s; }
-    .social-footer a:hover { opacity: 1; color: var(--accent); }
+        h1 {
+            font-size: 5rem;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-
-    <aside>
-        <div class="wiki-logo">KIRANMOY.ME</div>
-        <a href="#identity" class="nav-item">01 // Identity</a>
-        <a href="#specialization" class="nav-item">02 // Figma Core</a>
-        <a href="#assets" class="nav-item">03 // Project Index</a>
-        <a href="#network" class="nav-item">04 // Channels</a>
-        <div style="margin-top: auto; color: #222; font-size: 0.6rem; font-family: 'Space Mono';">
-            DATA_ENCRYPTED: 29.01.26
+    <div class="hero">
+        <div class="hero-img-box">
+            <img src="IMG_20251001_204037.jpg" alt="Kiranmoy">
         </div>
-    </aside>
-
-    <main>
-        <div class="hero">
-    <div class="hero-image-container">
-        <img src="IMG_20251001_204037.jpg" class="hero-image" alt="Kiranmoy Architect">
-    </div>
-    <div class="hero-content-right">
-        <div class="photo-tag">ID_STATUS: VERIFIED_AGENT</div>
-        <h1>KIRANMOY</h1>
-        <div class="hero-stats">
-            ROLE: SYSTEM_ARCHITECT<br>
-            CORE: FIGMA_UX / NEBULA_STUDIO<br>
-            LOC: 26.14°N / 91.73°E
+        <div class="hero-info">
+            <h1>KIRANMOY</h1>
+            <p>SYSTEM ARCHITECT // NEBULA ARC STUDIO</p>
         </div>
     </div>
-</div>
-    </section>
-
-        <section id="assets">
-            <div class="wiki-label">PROJECT_REPOSITORY</div>
-            <div class="wiki-card">
-                <h3>Skinstory (Active)</h3>
-                <p>Architecting the user flow and visual identity for a proprietary health-tech platform.</p>
-            </div>
-            <div class="wiki-card">
-                <h3>Cloud Infrastructure</h3>
-                <p>Verified deployment of kiranmoy.me via GitHub Cloud Nodes.</p>
-            </div>
-        </section>
-
-        <section id="network">
-            <div class="wiki-label">EXTERNAL_CHANNELS</div>
-            <div class="social-row">
-                <a href="https://instagram.com/nebula.arc.studio" target="_blank"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
-                <a href="https://facebook.com/YOUR_FB" target="_blank"><i class="fa-brands fa-facebook"></i> FACEBOOK</a>
-                <a href="https://github.com/The1Night2Agent" target="_blank"><i class="fa-brands fa-github"></i> GITHUB</a>
-                <a href="https://figma.com/@Nebula_Arc" target="_blank"><i class="fa-brands fa-figma"></i> FIGMA</a>
-            </div>
-        </section>
-    </main>
-
 </body>
 </html>
