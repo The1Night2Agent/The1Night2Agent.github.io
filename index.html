@@ -1,66 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiranmoy | Executive Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* 1. Resetting the browser defaults so we start with a clean slate */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body { 
-            background-color: #000; 
-            color: #F5F5DC; /* That Soft Cream you wanted */
-            font-family: sans-serif;
-            overflow-x: hidden; /* Prevents annoying side-scrolling */
-        }
-
-        /* 2. THE MANAGER: Telling the hero box to split into two columns */
-        .hero {
-            display: flex; 
-            height: 100vh;
-            align-items: center; /* Centers items vertically */
-            padding: 0 5%;
-            gap: 90px; /* The 'Menace' gap between photo and text */
-        }
-
-        /* 3. THE FRAME: Holding your portrait */
-        .hero-img-box {
-            flex: 1; /* Take up equal space */
-            height: 80vh; /* Don't touch the very top or bottom */
-            border: 1px solid rgba(245, 245, 220, 0.2);
-            display: flex;
-            justify-content: center; /* Center photo horizontally */
-            align-items: center;     /* Center photo vertically */
-            overflow: hidden;        /* THE POLICE: Keeps image inside the border */
-        }
-
-        /* 4. THE IMAGE: The actual content */
-        .hero-img-box img {
-            max-height: 100%; /* Obey the frame height */
-            width: auto;      /* Don't stretch the width */
-            filter: grayscale(100%); /* The 'Gangster' aesthetic */
-        }
-
-        /* 5. THE IDENTITY: Your right-side text */
-        .hero-info {
-            flex: 1; /* Take up the other half of the space */
-        }
-
-        h1 {
-            font-size: 5rem;
-            letter-spacing: -5px;
-            color: #fff;
-            margin-bottom: 20px;
-        }
+        :root{--emerald:#065f46;--gold:#d4af37;--dark:#111827;--light:#f9fafb}body{margin:0;padding:0;background-color:var(--dark);font-family:'Inter',sans-serif;color:var(--light);display:flex;justify-content:center;align-items:center;min-height:100vh}#v-d{text-align:center;transition:opacity .5s}#m-c{display:none;text-align:center;padding:40px}.i-g{margin-top:20px}input[type="password"]{background:#1f2937;border:1px solid var(--emerald);padding:12px 20px;color:#fff;border-radius:8px;outline:0;width:250px}button{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-weight:700}.p-l{display:flex;gap:30px;justify-content:center;margin-top:40px}.p-l a{color:var(--light);font-size:2rem;transition:transform .3s;text-decoration:none}.p-l a:hover{color:var(--gold);transform:translateY(-5px)}.v-s{margin-top:50px;font-size:.9rem;color:#6b7280;border-top:1px solid #374151;padding-top:20px}
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-img-box">
-            <img src="IMG_20251001_204037.jpg" alt="Kiranmoy">
-        </div>
-        <div class="hero-info">
-            <h1>KIRANMOY</h1>
-            <p>SYSTEM ARCHITECT // NEBULA ARC STUDIO</p>
-        </div>
+    <div id="v-d">
+        <h1 style="color:var(--gold)">ARCHITECT ACCESS</h1>
+        <div class="i-g"><input type="password" id="p-i" placeholder="Key..."><button id="u-b">UNLOCK</button></div>
     </div>
+    <div id="m-c">
+        <h1 style="color:var(--gold)">KIRANMOY</h1>
+        <p>BBA Student | UI/UX Architect</p>
+        <div class="p-l">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-figma"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div class="v-s">SYSTEM VISITS: <span id="v-v">0</span></div>
+    </div>
+
+    <script>
+        /* OBFUSCATED SECURITY CORE */
+        (function(_0x1b2c,_0x4a5d){const _0x3e12=function(_0x2d1a){while(--_0x2d1a){_0x1b2c['push'](_0x1b2c['shift']());}};_0x3e12(++_0x4a5d);}(['innerText','value','addEventListener','4f828a6f37803e7e23730e8c81335f6068221c5218d60c406085a8c9b9d885a0','SHA-256','block','style','getElementById','none','p-i','u-b','masterpiece-content','v-v','v-d'],0x1a2));const _0x1a2b=function(_0x1b2c,_0x4a5d){_0x1b2c=_0x1b2c-0x0;let _0x3e12=['innerText','value','addEventListener','4f828a6f37803e7e23730e8c81335f6068221c5218d60c406085a8c9b9d885a0','SHA-256','block','style','getElementById','none','p-i','u-b','m-c','v-v','v-d'][_0x1b2c];return _0x3e12;};document[_0x1a2b('7')](_0x1a2b('10'))[_0x1a2b('2')]('click',async()=>{const _0x5f1a=document[_0x1a2b('7')](_0x1a2b('9'))[_0x1a2b('1')];const _0x2a1c=new TextEncoder()[_0x1a2b('4')='encode'](_0x5f1a);const _0x3b2d=await crypto['subtle']['digest'](_0x1a2b('4'),_0x2a1c);const _0x4c3e=Array['from'](new Uint8Array(_0x3b2d))['map'](_0x12a=>_0x12a['toString'](0x10)['padStart'](0x2,'0'))['join']('');if(_0x4c3e===_0x1a2b('3')){document[_0x1a2b('7')](_0x1a2b('13'))[_0x1a2b('6')]['display']=_0x1a2b('8');document[_0x1a2b('7')](_0x1a2b('11'))[_0x1a2b('6')]['display']=_0x1a2b('5');}else{alert('Improper Form.');}});fetch('https://api.countapi.xyz/hit/kiranmoy.me/visits')['then'](_0x1b=>_0x1b['json']())['then'](_0x4a=>{document[_0x1a2b('7')](_0x1a2b('12'))[_0x1a2b('0')]=_0x4a['value'];});
+    </script>
 </body>
 </html>
