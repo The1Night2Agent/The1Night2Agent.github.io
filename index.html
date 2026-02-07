@@ -3,64 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiranmoy | Executive Portfolio</title>
+    <title>Kiranmoy | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root{--emerald:#065f46;--gold:#d4af37;--dark:#111827;--light:#f9fafb}
-        body{margin:0;padding:0;background-color:var(--dark);font-family:'Inter',sans-serif;color:var(--light);display:flex;justify-content:center;align-items:center;min-height:100vh}
-        #vault-door{text-align:center}
-        #master-content{display:none;text-align:center;padding:40px}
-        .input-group{margin-top:20px}
-        input[type="password"]{background:#1f2937;border:1px solid var(--emerald);padding:12px 20px;color:#fff;border-radius:8px;outline:0;width:250px}
-        button{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-weight:700}
+        body{margin:0;background-color:var(--dark);font-family:sans-serif;color:var(--light);display:flex;justify-content:center;align-items:center;min-height:100vh}
+        #door{text-align:center}
+        #content{display:none;text-align:center;padding:40px}
+        input{background:#1f2937;border:1px solid var(--emerald);padding:12px;color:#fff;border-radius:8px;outline:0}
+        button{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer}
         .links{display:flex;gap:30px;justify-content:center;margin-top:40px}
-        .links a{color:var(--light);font-size:2rem;transition:transform .3s;text-decoration:none}
-        .links a:hover{color:var(--gold);transform:translateY(-5px)}
+        .links a{color:var(--light);font-size:2rem;text-decoration:none}
     </style>
 </head>
 <body>
 
-    <div id="vault-door">
+    <div id="door">
         <h1 style="color:var(--gold)">ARCHITECT ACCESS</h1>
-        <div class="input-group">
-            <input type="password" id="passInput" placeholder="Enter Key...">
-            <button onclick="handleUnlock()">UNLOCK</button>
-        </div>
+        <input type="password" id="pw" placeholder="Enter Key...">
+        <button onclick="check()">UNLOCK</button>
     </div>
 
-    <div id="master-content">
+    <div id="content">
         <h1 style="color:var(--gold)">KIRANMOY</h1>
-        <p>BBA Student | UI/UX Architect</p>
         <div class="links">
-            <a href="https://github.com/your-username"><i class="fab fa-github"></i></a>
-            <a href="https://www.figma.com/@your-username"><i class="fab fa-figma"></i></a>
-            <a href="https://instagram.com/your-username"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/your-username"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/The1Night2Agent"><i class="fab fa-github"></i></a>
+            <a href="https://www.figma.com/Nebula_Arc"><i class="fab fa-figma"></i></a>
+            <a href="https://instagram.com/@nebula.arc.studio"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/your username"><i class="fab fa-facebook"></i></a>
         </div>
-        <div style="margin-top:30px; color:var(--emerald)">SYSTEM STATUS: ACTIVE</div>
     </div>
 
     <script>
-        // The Hash below is for the password: Architect2026
-        const MASTER_HASH = "4f828a6f37803e7e23730e8c81335f6068221c5218d60c406085a8c9b9d885a0";
-
-        async function handleUnlock() {
-            const inputField = document.getElementById("passInput");
-            const password = inputField.value;
-
-            // Convert password to a SHA-256 Hash
-            const msgBuffer = new TextEncoder().encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-
-            // Check if the hashes match
-            if (hashHex === MASTER_HASH) {
-                document.getElementById("vault-door").style.display = "none";
-                document.getElementById("master-content").style.display = "block";
+        function check() {
+            var input = document.getElementById("pw").value;
+            // DIRECT PASSWORD: No encryption for now to ensure it works
+            if (input === "Architect2026") {
+                document.getElementById("door").style.display = "none";
+                document.getElementById("content").style.display = "block";
             } else {
-                alert("Improper Form. Access Denied.");
-                inputField.value = "";
+                alert("Improper Form Access Denied.");
             }
         }
     </script>
