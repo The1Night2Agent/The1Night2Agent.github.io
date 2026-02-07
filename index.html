@@ -6,7 +6,16 @@
     <title>Kiranmoy | Executive Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root{--emerald:#065f46;--gold:#d4af37;--dark:#111827;--light:#f9fafb}body{margin:0;padding:0;background-color:var(--dark);font-family:'Inter',sans-serif;color:var(--light);display:flex;justify-content:center;align-items:center;min-height:100vh}#v-d{text-align:center}#m-c{display:none;text-align:center;padding:40px}.i-g{margin-top:20px}input[type="password"]{background:#1f2937;border:1px solid var(--emerald);padding:12px 20px;color:#fff;border-radius:8px;outline:0;width:250px}button{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-weight:700}.p-l{display:flex;gap:30px;justify-content:center;margin-top:40px}.p-l a{color:var(--light);font-size:2rem;transition:transform .3s;text-decoration:none}.p-l a:hover{color:var(--gold);transform:translateY(-5px)}.v-s{margin-top:50px;font-size:.9rem;color:#6b7280;border-top:1px solid #374151;padding-top:20px}
+        :root{--emerald:#065f46;--gold:#d4af37;--dark:#111827;--light:#f9fafb}
+        body{margin:0;padding:0;background-color:var(--dark);font-family:'Inter',sans-serif;color:var(--light);display:flex;justify-content:center;align-items:center;min-height:100vh}
+        #v-d{text-align:center}
+        #m-c{display:none;text-align:center;padding:40px}
+        .i-g{margin-top:20px}
+        input[type="password"]{background:#1f2937;border:1px solid var(--emerald);padding:12px 20px;color:#fff;border-radius:8px;outline:0;width:250px}
+        button{background:var(--emerald);color:#fff;border:none;padding:12px 24px;border-radius:8px;cursor:pointer;font-weight:700}
+        .p-l{display:flex;gap:30px;justify-content:center;margin-top:40px}
+        .p-l a{color:var(--light);font-size:2rem;transition:transform .3s;text-decoration:none}
+        .p-l a:hover{color:var(--gold);transform:translateY(-5px)}
     </style>
 </head>
 <body>
@@ -24,26 +33,24 @@
         <div class="p-l">
             <a href="https://github.com/The1Night2Agent"><i class="fab fa-github"></i></a>
             <a href="https://www.figma.com/@Nebula_Arc"><i class="fab fa-figma"></i></a>
-            <a href="https://instagram.com/@nebula.arc.studio"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/your-username"><i class="fab fa-facebook"></i></a>
+            <a href="https:/instagram.com/@nebula.arc.studio"><i class="fab fa-instagram"></i></a>
+            <a href="https:/facebook.com/@your_username"><i class="fab fa-facebook"></i></a>
         </div>
-        <div class="v-s">SYSTEM STATUS: <span style="color:var(--emerald)">ACTIVE</span></div>
+        <div style="margin-top:30px; color:var(--emerald)">SYSTEM STATUS: SECURE</div>
     </div>
 
     <script>
-        const _0x12a4 = ["4f828a6f37803e7e23730e8c81335f6068221c5218d60c406085a8c9b9d885a0", "SHA-256", "v-d", "m-c", "p-i", "u-b"];
+        // Password is still Architect2026
+        const _k = "4f828a6f37803e7e23730e8c81335f6068221c5218d60c406085a8c9b9d885a0";
         
-        document.getElementById(_0x12a4[5]).addEventListener("click", async () => {
-            const input = document.getElementById(_0x12a4[4]).value;
-            const encoder = new TextEncoder();
-            const data = encoder.encode(input);
-            const hashBuffer = await crypto.subtle.digest(_0x12a4[1], data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        document.getElementById("u-b").addEventListener("click", async () => {
+            const val = document.getElementById("p-i").value;
+            const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(val));
+            const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 
-            if (hashHex === _0x12a4[0]) {
-                document.getElementById(_0x12a4[2]).style.display = "none";
-                document.getElementById(_0x12a4[3]).style.display = "block";
+            if (hash === _k) {
+                document.getElementById("v-d").style.display = "none";
+                document.getElementById("m-c").style.display = "block";
             } else {
                 alert("Improper Form.");
             }
